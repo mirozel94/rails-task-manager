@@ -1,0 +1,13 @@
+<h1>Tasks Manager</h1>
+
+<ul>
+<% @tasks.each do |task| %>
+  <li><%= "#{task.id} - #{task.name} (done:#{task.done})"%>
+    <%= link_to 'delete', task_path(task), method: :delete %>
+    <%= link_to 'update', edit_task_path(task) %>
+  </li>
+<% end %>
+</ul>
+
+
+  <%= link_to 'create new', new_task_path %>
