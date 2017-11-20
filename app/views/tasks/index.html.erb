@@ -1,13 +1,17 @@
 <h1>Tasks Manager</h1>
 
-<ul>
+<ul id="main-listing">
 <% @tasks.each do |task| %>
-  <li><%= "#{task.id} - #{task.name} (done:#{task.done})"%>
-    <%= link_to 'delete', task_path(task), method: :delete %>
-    <%= link_to 'update', edit_task_path(task) %>
+  <li><% if task.done %>
+        <input id="checkbox" type="checkbox" onclick="return false;" checked>
+      <% else %>
+        <input id="checkbox" type="checkbox" onclick="return false;">
+      <% end %>
+      <%= link_to "#{task.name}", task_path(task) %>
+      <%= link_to 'delete', task_path(task), method: :delete %>
+      <%= link_to 'update', edit_task_path(task) %>
   </li>
 <% end %>
 </ul>
-
 
   <%= link_to 'create new', new_task_path %>
