@@ -1,3 +1,7 @@
 <h1>Task finder</h1>
 
-<p><%= @task.name %><p>
+<% if @task.done %>
+  <input id="checkbox" type="checkbox" onclick="return false;" checked><%= @task.name %>
+<% else %>
+  <input id="checkbox" type="checkbox" onclick="return false;"><%= @task.name %>
+<% end %>

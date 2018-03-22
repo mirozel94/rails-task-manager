@@ -5,3 +5,9 @@
   <%= f.text_field :name %>
   <%= f.submit 'update' %>
 <% end %>
+
+<% if task.done %>
+<!-- Umark as done -->
+<% else %>
+<!-- Mark as done -->
+<% end %>
